@@ -17,25 +17,23 @@ function render(filter = '') {
     );
     filtered.forEach(p => {
         const li = document.createElement('li');
-        li.innerHTML = `<strong>${p.name}</strong><br>${p.desc}`;
+        const strong = document.createElement('strong');
+        strong.textContent = p.name;
+        li.appendChild(strong);
+        li.appendChild(document.createElement('br'));
+        li.appendChild(document.createTextNode(p.desc));
         list.appendChild(li);
     });
 }
 
 form.addEventListener('submit', e => {
     e.preventDefault();
-    projects.push({
-        name: nameInput.value,
-        desc: descInput.value
-    });
+    projects.push({ name: nameInput.value, desc: descInput.value });
     save();
     nameInput.value = '';
     descInput.value = '';
     render(searchInput.value);
 });
 
-searchInput.addEventListener('input', () => {
-    render(searchInput.value);
-});
-
+searchInput.addEventListener('input', () => render(searchInput.value));
 render();

@@ -41,3 +41,11 @@ li {
     border-radius: 6px;
     margin-bottom: 8px;
 }
+
+@media (max-width: 480px) {
+    body { padding: 8px; }
+    input, button { font-size: 14px; padding: 8px; }
+    form { gap: 6px; }
+    #search { margin-top: 4px; }
+    li { padding: 10px; }
+}
